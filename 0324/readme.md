@@ -1,3 +1,7 @@
+## 실행화면
+![image](https://github.com/user-attachments/assets/9456f0ed-7279-4ff1-a2df-9cc93f9196ab)
+
+
 ## html 코드
 
 ```html
