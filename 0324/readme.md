@@ -1,5 +1,5 @@
 ## 실행화면
-![image](https://github.com/user-attachments/assets/9456f0ed-7279-4ff1-a2df-9cc93f9196ab)
+![image](https://github.com/user-attachments/assets/de4bfe48-52c4-460b-b9e9-39aabaa8fdee)
 
 
 ## html 코드
@@ -57,38 +57,6 @@
             uploadedImage.style.display = savedEntry.image ? 'block' : 'none';
             audioPlayback.src = savedEntry.audio || '';
             audioPlayback.style.display = savedEntry.audio ? 'block' : 'none';
-        });
-
-        imageUpload.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    uploadedImage.src = reader.result;
-                    uploadedImage.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        recordButton.addEventListener('click', async () => {
-            if (!mediaRecorder) {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                mediaRecorder.ondataavailable = (event) => audioChunks.push(event.data);
-                mediaRecorder.onstop = () => {
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-                    audioPlayback.src = URL.createObjectURL(audioBlob);
-                    audioPlayback.style.display = 'block';
-                    audioChunks = [];
-                };
-                mediaRecorder.start();
-                recordButton.textContent = '녹음 중지';
-            } else {
-                mediaRecorder.stop();
-                mediaRecorder = null;
-                recordButton.textContent = '녹음 시작';
-            }
         });
 
         saveButton.addEventListener('click', () => {
