@@ -1,4 +1,10 @@
 ## 실행화면
+- **날짜별 일기 작성 및 저장 기능 구현**
+
+- **날씨 및 기분 선택 기능 추가**
+
+- **데이터 로컬 저장**
+
 ![image](https://github.com/user-attachments/assets/de4bfe48-52c4-460b-b9e9-39aabaa8fdee)
 
 
