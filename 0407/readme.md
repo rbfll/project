@@ -20,6 +20,8 @@
 ## 실행화면
 
 ![image](https://github.com/user-attachments/assets/3db80466-a5cf-4701-8455-3f269a72c4d5)
+![image](https://github.com/user-attachments/assets/34a23439-d0fe-4782-84ab-78887a95c4ea)
+
 
 ## html 코드
 
