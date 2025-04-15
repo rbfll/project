@@ -57,9 +57,9 @@
 
 ## 실행화면
 
-![스크린샷 2025-04-15 171138](https://github.com/user-attachments/assets/e682a2a8-c2c5-4507-888d-972bfd268d64)
-
-![스크린샷 2025-04-15 171202](https://github.com/user-attachments/assets/292c5d95-c537-4776-b0c5-f8c94356ae0c)
+![스크린샷 2025-04-15 171953](https://github.com/user-attachments/assets/d61c3052-c361-4df3-9b3b-527cd0210584)
+![스크린샷 2025-04-15 172007](https://github.com/user-attachments/assets/f2d5ca38-aa66-41dd-b3fd-5fb13374f9ba)
+![스크린샷 2025-04-15 172018](https://github.com/user-attachments/assets/9443e6d8-d2ab-4d9a-b521-d35cc4f01787)
 
 
 
