@@ -1,99 +1,51 @@
 
-
-## 프로젝트 개요
-MyDay는 사용자가 일상을 기록할 수 있는 간편한 웹 기반 다이어리 애플리케이션입니다. 날씨, 기분, 텍스트 메모와 함께 이미지와 음성도 함께 저장할 수 있습니다.
-
-## 주요 변경사항
-
-### 1. 랜딩 페이지 추가
-
-**변경 내용:**
-- 애플리케이션 첫 접속 시 "☆ MyDay ☆" 로고만 표시되는 미니멀한 랜딩 페이지 추가
-- 로고 클릭 시 일기 작성 페이지로 전환
-- 기존 다이어리 페이지에서 로고 클릭 시 랜딩 페이지로 돌아가는 기능 구현
-
-**기술적 구현:**
-```javascript
-// 페이지 전환 함수
-function showLandingPage() {
-  document.getElementById('landing-page').style.display = 'flex';
-  document.getElementById('diary-page').style.display = 'none';
-}
-
-function showDiaryPage() {
-  document.getElementById('landing-page').style.display = 'none';
-  document.getElementById('diary-page').style.display = 'block';
-  resetForm(); // 다이어리 페이지 로드 시 폼 초기화
-}
-```
-
-### 2. 단일 파일 구조로 통합
-
-**변경 내용:**
-- 기존 HTML, CSS 파일을 하나의 `MyDiary.html` 파일로 통합
-- 내부 스타일시트 사용으로 외부 CSS 파일 의존성 제거
-- JavaScript 코드도 동일 파일 내에 통합하여 배포 및 관리 용이성 향상
-
-**구조 변경:**
-```html
-<!-- 랜딩 페이지 -->
-<div id="landing-page" class="landing-container">
-  <a href="#" class="logo" onclick="showDiaryPage()">☆ MyDay ☆</a>
-</div>
-
-<!-- 일기 페이지 -->
-<div id="diary-page" class="diary-container">
-  <!-- 일기 작성 인터페이스 -->
-</div>
-```
-
-### 3. 사용자 인터페이스 개선
-
-**변경 내용:**
-- 랜딩 페이지 로고에 호버 효과 추가 (확대 및 색상 변경)
-- 로고 사이즈 강조 (4em)로 시각적 중요성 부여
-- 전체 화면 중앙 정렬을 통한 사용자 경험 개선
-
-**CSS 구현:**
-```css
-.landing-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
-
-.logo {
-  font-size: 4em;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.1);
-  color: #888;
-}
-```
-
-### 4. 페이지 전환 시 상태 관리
-
-**변경 내용:**
-- 다이어리 페이지로 전환 시 자동 폼 초기화 기능 추가
-- 사용자가 작성 중이던 내용을 유지하면서 페이지 전환 가능
-- localStorage를 활용한 데이터 지속성 유지
-
-## 개발 결과
-
-이번 변경을 통해 MyDay 애플리케이션은 다음과 같은 개선 효과를 얻었습니다:
-
-1. **사용자 경험 향상**: 초기 접속 시 심플한 인터페이스로 시작하여 사용자에게 편안한 느낌 제공
-2. **코드 유지보수성 향상**: 단일 파일 구조로 변경하여 관리 및 배포 용이성 증가
-3. **브랜딩 강화**: 로고를 강조하여 애플리케이션의 아이덴티티 강화
-
+## ✅ 리팩터링 개요
+- **프로젝트 명**: MyDay (웹 일기장)
+- **기존 문제점**:
+  - 앱 진입 시 다이어리 작성 화면이 바로 표시되어 사용자 흐름이 다소 직관적이지 않음
+  - 스타일 및 스크립트 코드가 분산되어 유지보수가 어렵고 중복 요소가 있음
+- **리팩터링 목표**:
+  - 사용자 경험(UX) 개선
+  - 구조적 명확성 확보
+  - CSS/JS 코드 정돈 및 재사용성 강화
 
 ---
+
+## 🔨 주요 개선 사항
+
+### 1. 🎯 랜딩 페이지 도입
+- 초기 진입 시 `☆ MyDay ☆` 로고만 보이는 **랜딩 페이지**를 추가
+- 클릭 시 다이어리 작성 페이지로 이동하도록 SPA 방식 구현
+- 사용자의 **브랜드 인식 강화** 및 **초기 진입 흐름 정리**
+
+### 2. 🧼 코드 구조 개선
+- `showLandingPage()` / `showDiaryPage()` 함수로 **페이지 전환 로직 분리**
+- `resetForm()`을 `showDiaryPage()`에 통합하여 **자동 초기화 처리**
+- 중복된 `row`, `title`, `remove-button` 등의 스타일을 CSS 내부로 **일관되게 통합**
+
+### 3. 🎨 스타일링 통합 및 정돈
+- 모든 CSS를 `<style>` 태그 안에 **집중화**
+- 공통 요소 (`input`, `textarea`, `button`, 등)에 대한 스타일을 **일관되게 적용**
+- `hover`, `transition`, `responsive` 속성 추가로 사용자 경험 향상
+
+### 4. 💾 기존 기능 유지
+- 이미지 업로드 미리보기 및 삭제 기능
+- 오디오 녹음 및 미리듣기 기능
+- 로컬스토리지 기반 저장/복원/삭제 기능
+- **핵심 기능은 그대로 유지하면서 UI/UX만 개선**
+
+---
+
+## 🧠 리팩터링 전후 비교 요약
+
+| 항목             | 리팩터링 전                         | 리팩터링 후                          |
+|------------------|-------------------------------------|--------------------------------------|
+| 초기 진입 화면   | 바로 다이어리 입력 화면 표시        | 로고 기반 랜딩 페이지 → 진입 유도     |
+| 페이지 구조      | 단일 페이지                         | 페이지 전환 로직 분리 (SPA 느낌)     |
+| 코드 가독성      | 일부 중복, 기능 혼재                | 함수 분리 및 공통 CSS 정돈           |
+| 스타일 관리      | 외부 CSS 파일 분리                  | 내장 스타일 집중 관리                |
+| UX 흐름          | 다소 직관적이지 않음                | 단계적 진입 + UI 반응성 향상         |
+
+---
+
 
