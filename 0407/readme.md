@@ -8,7 +8,7 @@
 
 ### 💡 기술 스택
 
-- HTML5 / CSS3 / JavaScript 
+- HTML / CSS / JavaScript 
 - localStorage 활용 (데이터 저장 및 불러오기)
 
 ### 🎯 핵심 결과
